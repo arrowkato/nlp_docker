@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nlp_env:
+    build: .
+    ports:
+    - "8888:8888"
+    volumes: 
+    - ./workspace:/opt/workspace
+#TODO:mecabの設定ファイルのvolumeの設定はまだ。
+
+# TODO:mecabの辞書は、ホスト側に置いて、リンクさせる
+# もとに戻したかったら、バックアップのファイルで上書きする。
+
+# TODO: テストで、最終的には、wslの上でdockerを動かす予定
