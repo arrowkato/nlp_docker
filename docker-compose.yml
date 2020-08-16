@@ -5,10 +5,11 @@ services:
     ports:
     - "8888:8888"
     volumes: 
+    # ホスト側に配置したファイルをコンテナ側と共有する
     - ./workspace:/opt/workspace
-#TODO:mecabの設定ファイルのvolumeの設定はまだ。
+    # mecabの辞書ファイルの変更を永続化する
+    - mecab_dictionary:/opt/mecab_setting
 
-# TODO:mecabの辞書は、ホスト側に置いて、リンクさせる
-# もとに戻したかったら、バックアップのファイルで上書きする。
-
-# TODO: テストで、最終的には、wslの上でdockerを動かす予定
+    # mecabの設定ファイルの永続化用volume
+volumes: 
+  mecab_dictionary:
